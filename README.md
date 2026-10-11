@@ -20,6 +20,7 @@
 9. [Setup & Installation Guide](#-setup--installation-guide)
 10. [How to Run the Application](#-how-to-run-the-application)
 11. [Known Limitations & Future Roadmap](#-known-limitations--future-roadmap)
+12. [Deploy the Streamlit App](#-deploy-the-streamlit-app)
 
 ---
 
@@ -317,6 +318,17 @@ http://localhost:8501
 3. Click **"Analyze Interaction Risk ⚡"** to generate all three panels instantaneously.
 
 ---
+
+## 🚀 Deploy the Streamlit App
+
+The repository's documented dashboard is the Streamlit app at `app/main.py`. It runs the inference code directly, so deploy it on a Streamlit host such as [Streamlit Community Cloud](https://share.streamlit.io/), rather than Vercel.
+
+1. Open [Streamlit Community Cloud](https://share.streamlit.io/) and choose **Create app**.
+2. Select repository `jiya71255/DD_Interactions`, branch `main`, and main file path `app/main.py`.
+3. In **Advanced settings**, choose Python **3.11** to match the project's `requires-python = ">=3.11"`.
+4. Choose **Deploy** and wait for the first dependency installation and model startup to finish.
+
+The root `requirements.txt` declares the app dependencies. Keep `models/graphsage_mvp.pt` and the required files under `data/` in the repository because the app reads them at runtime. The app has no deployment secrets to configure. The separate `frontend/app.py` is an API-backed interface and is not the dashboard launched by the repository's current run instructions.
 
 ## 🗺️ Known Limitations & Future Roadmap
 
